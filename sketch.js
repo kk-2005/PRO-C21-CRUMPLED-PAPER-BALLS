@@ -52,10 +52,10 @@ function draw() {
 }
 function key_pressed(){
 	if(keyIsDown===UP_ARROW){
-		Matter.Bodies.applyForce(ball,{x:0,y:0},{x:0,y:-0.05})
+		Matter.Bodies.applyForce(ball,{x:0,y:0},{x:0,y:-50})
 	}
 	if(keyIsDown===RIGHT_ARROW){
-		Matter.Bodies.applyForce(ball,{x:0,y:0},{x:0.05,y:0})
+		Matter.Bodies.applyForce(ball,{x:0,y:0},{x:50,y:0})
 	}
 }
 
