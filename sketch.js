@@ -8,6 +8,7 @@ let world
 var ball;
 var left_side,right_side;
 var ground;
+
 function setup() {
 	createCanvas(1000, 700);
 
@@ -33,33 +34,30 @@ function setup() {
 
 
 	Engine.run(engine);
-	rectMode(CENTER);
-	ellipseMode(RADIUS);
+	
 }
 
 
 function draw() {
   
   background(0);
+  rectMode(CENTER);
+  ellipseMode(RADIUS);
+  ellipse(ball.position.x,ball.position.y,30);
   ground.show();
   left_side.show();
   right_side.show();
-  
   drawSprites();
   Engine.update(engine);
-  ellipse(ball.position.x,ball.position.y,30);
+  
  
 }
-function key_pressed(){
-	if(keyIsDown===UP_ARROW){
-		Matter.Bodies.applyForce(ball,{x:0,y:0},{x:0,y:-50})
+function keyPressed(){
+	if(keyCode===UP_ARROW){
+		Matter.Body.applyForce(ball,ball.position,{x:0,y:-3});
 	}
-	if(keyIsDown===RIGHT_ARROW){
-		Matter.Bodies.applyForce(ball,{x:0,y:0},{x:50,y:0})
+	if(keyCode===RIGHT_ARROW){
+		Matter.Body.applyForce(ball,ball.position,{x:3,y:0});
 	}
+	
 }
-
-
-
-
-
